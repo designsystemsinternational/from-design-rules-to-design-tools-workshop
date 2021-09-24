@@ -1,0 +1,17 @@
+{
+  "name": "rules-to-tools",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "mechanic dev",
+    "build": "mechanic build",
+    "serve": "mechanic serve",
+    "new": "mechanic new function"
+  },
+  "devDependencies": {
+    "@mechanic-design/core": "^1.0.0",
+    "@mechanic-design/cli": "^1.0.0"
+  },
+  "dependencies": {
+    "@mechanic-design/engine-react": "^1.0.0"
+  }
+}
