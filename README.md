@@ -1,9 +1,13 @@
-# Mechanic project
+# From Design Rules to Design Tools
+
+Examples for the workshop: From Design Rules to Design Tools at Design Matters 2021
+
+## How to use this repo
 
 If you haven't already, move your working directory to this project to run Mechanic commands:
 
 ```
-cd path/to/project
+cd path/to/rules-to-tools
 ```
 
 ## Running design functions
