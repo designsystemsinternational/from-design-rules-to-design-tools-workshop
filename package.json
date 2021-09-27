@@ -8,10 +8,11 @@
     "new": "mechanic new function"
   },
   "devDependencies": {
-    "@mechanic-design/core": "^1.0.0",
-    "@mechanic-design/cli": "^1.0.0"
+    "@mechanic-design/cli": "^1.0.0",
+    "@mechanic-design/core": "^1.0.0"
   },
   "dependencies": {
-    "@mechanic-design/engine-react": "^1.0.0"
+    "@mechanic-design/engine-react": "^1.0.0",
+    "@mechanic-design/fonts": "^1.0.0"
   }
 }
