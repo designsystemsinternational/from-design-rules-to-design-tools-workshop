@@ -20,8 +20,8 @@ export const handler = ({ inputs, mechanic }) => {
   const isPlaying = useRef(true);
   const frameCount = useDrawLoop(isPlaying.current);
   const lines = text.split(" ");
-  const textColor = backgroundColor;
 
+  const textColor = backgroundColor;
   const fontSize = height / 8;
   const lineHeight = fontSize * 0.85;
 
@@ -47,8 +47,8 @@ export const handler = ({ inputs, mechanic }) => {
         maxX={width}
         minY={0}
         maxY={height}
-        minRadius={minRadius}
-        maxRadius={maxRadius}
+        minRadius={(width / 100) * minRadius}
+        maxRadius={(width / 100) * maxRadius}
         color1={color1}
         color2={color2}
       />
@@ -110,17 +110,19 @@ export const inputs = {
     default: "#002EBB",
   },
   minRadius: {
+    label: "Min Radius (% of width)",
     type: "number",
-    default: 40,
+    default: 5,
     min: 0,
-    max: 1000,
+    max: 200,
     slider: true,
   },
   maxRadius: {
+    label: "Max Radius (% of width)",
     type: "number",
-    default: 40,
+    default: 10,
     min: 0,
-    max: 1000,
+    max: 200,
     slider: true,
   },
   duration: {

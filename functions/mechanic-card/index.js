@@ -8,14 +8,15 @@ export const handler = ({ inputs, mechanic }) => {
     backgroundColor,
     mechanicColorOne,
     mechanicColorTwo,
-    fontSize,
+    fontScale,
     company,
     name,
     email,
     phone,
   } = inputs;
 
-  const margin = 30;
+  const margin = width / 18;
+  const fontSize = (width / 18) * fontScale;
   const textTop = margin + fontSize * 0.7;
   const lineHeight = fontSize * 1.2;
   // circle
@@ -130,12 +131,13 @@ export const inputs = {
     model: "hex",
     default: "#002EBB",
   },
-  fontSize: {
+  fontScale: {
     type: "number",
-    default: 24,
+    default: 1,
     slider: true,
-    min: 10,
-    max: 100,
+    min: 0.1,
+    max: 3,
+    step: 0.01,
   },
   company: {
     type: "text",
