@@ -30,25 +30,17 @@ We are going to be creating a new [Mechanic](https://mechanic.design) project.
 2. Open the Terminal application, write `cd` and drag the folder to the Terminal Window
 3. Press enter
 
-Now you can run the command to create a new Mechanic project:
+Now you can run the commands to create and run a new Mechanic project:
 
-```
-npm init mechanic@latest rules-tools-workshop
-```
+1. Run `npm init mechanic@latest rules-tools-workshop`
+2. Select "template"
+3. Select "React Image (SVG)"
+4. Call the function `my-first-function`
 
-Follow the prompts to create a new `React.js Image` template and call your function `my-first-function`.
+Now you have created a Mechanic project and you can move into the folder and run the design tool:
 
-Now move into the folder:
-
-```
-cd rules-tools-workshop
-```
-
-And run the Mechanic project:
-
-```
-npm run dev
-```
+1. Run `cd rules-tools-workshop`
+2. Run `npm run dev`
 
 ## Business card design function
 
@@ -56,7 +48,7 @@ npm run dev
 2. Choose "Example"
 3. Choose "Business Card Generator"
 
-## Adding new design functions
+## Instagram story design function
 
 1. From the Terminal window, run `npm run new`
 2. Choose "Example"
