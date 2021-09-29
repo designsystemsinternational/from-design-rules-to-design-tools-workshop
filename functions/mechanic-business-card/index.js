@@ -22,9 +22,13 @@ export const handler = ({ inputs, mechanic }) => {
   // circle
   const circleRadius = width / 10;
   const circleRadiusRotate = Math.random() * 360;
-  const circleRadiusOffsetX =
+  const circleX =
+    margin +
+    circleRadius +
     Math.random() * (width - margin * 2 - circleRadius * 2);
-  const circleRadiusOffsetY =
+  const circleY =
+    margin +
+    circleRadius +
     Math.random() * (height - margin * 2 - circleRadius * 2);
 
   useEffect(() => {
@@ -36,9 +40,7 @@ export const handler = ({ inputs, mechanic }) => {
       <rect fill={backgroundColor} width={width} height={height} />
       {/* The mechanic mini-logo */}
       <g
-        transform={`translate(${margin + circleRadius + circleRadiusOffsetX} ${
-          margin + circleRadius + circleRadiusOffsetY
-        }) rotate(${circleRadiusRotate})`}
+        transform={`translate(${circleX} ${circleY}) rotate(${circleRadiusRotate})`}
       >
         <path
           d={`M ${circleRadius} 0
