@@ -1,44 +1,29 @@
 import React, { useEffect } from "react";
 
 export const handler = ({ inputs, mechanic }) => {
+  const { width, height, color } = inputs;
+
   useEffect(() => {
     mechanic.done();
   }, []);
 
   return (
-    <svg width="500" height="500">
-      <rect fill={inputs.background} width="500" height="500" />
-      <circle
-        fill={inputs.foreground}
-        cx={inputs.xPosition}
-        cy={inputs.yPosition}
-        r="150"
-      />
+    <svg width={width} height={height}>
+      <rect fill={color} width={width} height={height} />
     </svg>
   );
 };
 
 export const inputs = {
-  xPosition: {
+  width: {
     type: "number",
-    slider: true,
-    min: 0,
-    max: 500,
-    default: 250,
+    default: 400,
   },
-  yPosition: {
+  height: {
     type: "number",
-    slider: true,
-    min: 0,
-    max: 500,
-    default: 250,
+    default: 300,
   },
-  background: {
-    type: "color",
-    model: "hex",
-    default: "#FDD7D1",
-  },
-  foreground: {
+  color: {
     type: "color",
     model: "hex",
     default: "#E94225",
