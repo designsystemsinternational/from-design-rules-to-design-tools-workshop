@@ -1,47 +1,67 @@
 # From Design Rules to Design Tools
 
-Examples for the workshop: From Design Rules to Design Tools at Design Matters 2021
+This code repository holds all the code shown in the From Rules to Tools workshop at Design Matter 2021.
 
-## How to use this repo
+## Installation
 
-If you haven't already, move your working directory to this project to run Mechanic commands:
+In order to run Mechanic, you need to install two things on your computer.
+
+### Node.js
+
+1. Go to https://nodejs.org and click the green button on the left to download the version "recommended for most users".
+2. After downloading the file, double-click the installer package and finish the installation.
+
+### Atom
+
+_Skip this if you already have a text editor such as Atom, Sublime Text or VS Code installed_
+
+1. Go to https://atom.io/ and click the "Download" button
+2. After downloading the file:
+   1. **Mac** Drag the application to the Applications folder
+   2. **Windows** Double-click the installer to install Atom
+
+## Your first design function
+
+_All instructions below are for Mac, but most explanations should work for Windows too_
+
+We are going to be creating a new [Mechanic](https://mechanic.design) project.
+
+1. In Finder, find the folder where you want to create a new Mechanic project folder
+2. Open the Terminal application, write `cd` and drag the folder to the Terminal Window
+3. Press enter
+
+Now you can run the command to create a new Mechanic project:
 
 ```
-cd path/to/rules-to-tools
+npm init mechanic@latest rules-tools-workshop
 ```
 
-## Running design functions
+Follow the prompts to create a new `React.js Image` template and call your function `my-first-function`.
 
-To run and see your design functions in action right away, just call:
+Now move into the folder:
+
+```
+cd rules-tools-workshop
+```
+
+And run the Mechanic project:
 
 ```
 npm run dev
 ```
 
-This will bundle and serve in place a web app that you can open and interact with in your own browser. That way you can test out the code of you design functions, start prototyping assets and exporting them.
+## Business card design function
 
-Alternatively, you can first built the app, which will generate a folder with the code transformed:
-
-```
-npm run build
-```
-
-And to serve that already built app and interact with it in a browser, run:
-
-```
-npm run serve
-```
+1. From the Terminal window, run `npm run new`
+2. Choose "Example"
+3. Choose "Business Card Generator"
 
 ## Adding new design functions
 
-There's two ways of doing it. First, running a command that will ask you a couple of questions to create a new design functions from a base (template, example or blank):
+1. From the Terminal window, run `npm run new`
+2. Choose "Example"
+3. Choose "Instagram Story Generator"
 
-```
-npm run new
-```
-
-The other way is to do it manually. Add a new folder in your design functions directory, and add there a `index.js` file. There you should define all necessary exports of a design function. Also, you should add all dependencies that your new design function would use, including its engine. Note that all these steps is done by the previous command.
-
-## More Mechanic
+## More resources
 
 To learn about what can be done and how to do it through Mechanic, visit the [documentation site](https://mechanic.design/docs).
