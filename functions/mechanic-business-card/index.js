@@ -38,7 +38,9 @@ export const handler = ({ inputs, mechanic }) => {
   return (
     <svg width={width} height={height}>
       <rect fill={backgroundColor} width={width} height={height} />
+
       {/* The mechanic mini-logo */}
+
       <g
         transform={`translate(${circleX} ${circleY}) rotate(${circleRadiusRotate})`}
       >
