@@ -1,6 +1,24 @@
 # From Design Rules to Design Tools
 
-Examples for the workshop: From Design Rules to Design Tools at Design Matters 2021
+This code repository holds all the code shown in the From Rules to Tools workshop at Design Matter 2021.
+
+## Installation
+
+In order to run Mechanic, you need to install two things on your computer.
+
+### Installing Node.js
+
+1. Go to https://nodejs.org and click the green button on the left to download the version "recommended for most users".
+2. After downloading the file, double-click the installer package and finish the installation.
+
+### Installing Atom
+
+_Skip this if you already have a text editor such as Atom, Sublime Text or VS Code installed_
+
+1. Go to https://atom.io/ and click the "Download" button
+2. After downloading the file
+3. **Mac** Drag the application to the Applications folder
+4. **Windows** Double-click the installer to install Atom
 
 ## How to use this repo
 
