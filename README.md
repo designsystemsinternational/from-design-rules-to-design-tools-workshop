@@ -17,12 +17,10 @@ _Skip this if you already have a text editor such as Atom, Sublime Text or VS Co
 
 1. Go to https://atom.io/ and click the "Download" button
 2. After downloading the file
-3. **Mac** Drag the application to the Applications folder
-4. **Windows** Double-click the installer to install Atom
+   1. **Mac** Drag the application to the Applications folder
+   2. **Windows** Double-click the installer to install Atom
 
-## How to use this repo
-
-If you haven't already, move your working directory to this project to run Mechanic commands:
+## Setup up your project
 
 ```
 cd path/to/rules-to-tools
