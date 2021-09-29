@@ -6,8 +6,8 @@ export const handler = ({ inputs, mechanic }) => {
     width,
     height,
     backgroundColor,
-    mechanicColorOne,
-    mechanicColorTwo,
+    colorOne,
+    colorTwo,
     fontScale,
     company,
     name,
@@ -43,12 +43,12 @@ export const handler = ({ inputs, mechanic }) => {
         <path
           d={`M ${circleRadius} 0
           A ${circleRadius} ${circleRadius}, 0, 0, 0, ${-circleRadius} 0 Z`}
-          fill={mechanicColorOne}
+          fill={colorOne}
         />
         <path
           d={`M ${-circleRadius} 0
            A ${circleRadius} ${circleRadius}, 0, 0, 0, ${circleRadius} 0 Z`}
-          fill={mechanicColorTwo}
+          fill={colorTwo}
         />
       </g>
 
@@ -57,7 +57,7 @@ export const handler = ({ inputs, mechanic }) => {
       <text
         x={margin}
         y={textTop}
-        fill={mechanicColorOne}
+        fill={colorOne}
         textAnchor="start"
         fontWeight="bold"
         fontFamily="Object Sans"
@@ -69,7 +69,7 @@ export const handler = ({ inputs, mechanic }) => {
       <text
         x={margin}
         y={textTop + lineHeight}
-        fill={mechanicColorOne}
+        fill={colorOne}
         textAnchor="start"
         fontWeight="normal"
         fontFamily="Object Sans"
@@ -81,7 +81,7 @@ export const handler = ({ inputs, mechanic }) => {
       <text
         x={margin}
         y={textTop + lineHeight * 2}
-        fill={mechanicColorOne}
+        fill={colorOne}
         textAnchor="start"
         fontWeight="normal"
         fontFamily="Object Sans"
@@ -94,7 +94,7 @@ export const handler = ({ inputs, mechanic }) => {
       <text
         x={width - margin}
         y={height - margin}
-        fill={mechanicColorOne}
+        fill={colorOne}
         textAnchor="end"
         fontWeight="bold"
         fontFamily="Object Sans"
@@ -119,14 +119,14 @@ export const inputs = {
     type: "color",
     model: "hex",
     default: "#FDD7D1",
-    options: ["#D4E1FF", "#FDD7D1", "#E94225", "#002EBB"],
+    // options: ["#D4E1FF", "#FDD7D1", "#E94225", "#002EBB"],
   },
-  mechanicColorOne: {
+  colorOne: {
     type: "color",
     model: "hex",
     default: "#E94225",
   },
-  mechanicColorTwo: {
+  colorTwo: {
     type: "color",
     model: "hex",
     default: "#002EBB",

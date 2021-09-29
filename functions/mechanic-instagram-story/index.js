@@ -1,5 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
+import { Circle } from "./Circle";
+import { useDrawLoop } from "./utils";
 import "./styles.css";
 
 export const handler = ({ inputs, mechanic }) => {
@@ -7,27 +9,22 @@ export const handler = ({ inputs, mechanic }) => {
     width,
     height,
     backgroundColor,
+    colorOne,
+    colorTwo,
+    fontScale,
     text,
-    color1,
-    color2,
     minRadius,
     maxRadius,
     duration,
   } = inputs;
 
+  // stuff needed for the looping
   const startTime = useRef(Date.now());
-
   const isPlaying = useRef(true);
   const frameCount = useDrawLoop(isPlaying.current);
   const lines = text.split(" ");
 
-  const textColor = backgroundColor;
-  const fontSize = height / 8;
-  const lineHeight = fontSize * 0.85;
-
-  // this trick helps us center the text vertically
-  const firstLine = height / 2 - lineHeight * ((lines.length - 2) / 2);
-
+  // function to determine when to end the animation
   useEffect(() => {
     if (Date.now() - startTime.current < duration * 1000) {
       mechanic.frame();
@@ -37,9 +34,18 @@ export const handler = ({ inputs, mechanic }) => {
     }
   }, [frameCount]);
 
-  let circles = [];
+  // colors and font sizes
+  const textColor = backgroundColor;
+  const fontSize = ((height / 8) * fontScale) / 100;
+  const lineHeight = fontSize * 0.85;
 
-  for (var i = 0; i < Math.min(Math.floor(frameCount / 15), 20); i++) {
+  // this trick helps us center the text vertically
+  const firstLine = height / 2 - lineHeight * ((lines.length - 2) / 2);
+
+  // this is an array where will  store the circles
+  const circles = [];
+
+  for (let i = 0; i < Math.min(Math.floor(frameCount / 15), 20); i++) {
     circles.push(
       <Circle
         key={i}
@@ -49,8 +55,8 @@ export const handler = ({ inputs, mechanic }) => {
         maxY={height}
         minRadius={(width / 100) * minRadius}
         maxRadius={(width / 100) * maxRadius}
-        color1={color1}
-        color2={color2}
+        colorOne={colorOne}
+        colorTwo={colorTwo}
       />
     );
   }
@@ -58,7 +64,6 @@ export const handler = ({ inputs, mechanic }) => {
   return (
     <svg width={width} height={height}>
       <rect fill={backgroundColor} width={width} height={height} />
-
       {circles}
       {lines.map((line, index) => {
         return (
@@ -93,22 +98,32 @@ export const inputs = {
     type: "color",
     model: "hex",
     default: "#FDD7D1",
+    // options: ["#D4E1FF", "#FDD7D1", "#E94225", "#002EBB"],
   },
 
-  text: {
-    type: "text",
-    default: "TURN YOUR DESIGN RULES INTO DESIGN TOOLS",
-  },
-  color1: {
+  colorOne: {
     type: "color",
     model: "hex",
     default: "#E94225",
   },
-  color2: {
+  colorTwo: {
     type: "color",
     model: "hex",
     default: "#002EBB",
   },
+  fontScale: {
+    label: "Font Scale (%)",
+    type: "number",
+    default: 100,
+    slider: true,
+    min: 5,
+    max: 200,
+  },
+  text: {
+    type: "text",
+    default: "TURN YOUR DESIGN RULES INTO DESIGN TOOLS",
+  },
+
   minRadius: {
     label: "Min Radius (% of width)",
     type: "number",
@@ -126,6 +141,7 @@ export const inputs = {
     slider: true,
   },
   duration: {
+    label: "Duration (seconds)",
     type: "number",
     default: 20,
   },
@@ -134,72 +150,4 @@ export const inputs = {
 export const settings = {
   engine: require("@mechanic-design/engine-react"),
   animated: true,
-};
-
-const useDrawLoop = (isPlaying) => {
-  const raf = useRef();
-  const [frameCount, setFrameCount] = useState(0);
-
-  useEffect(() => {
-    cancelAnimationFrame(raf.current);
-
-    if (!isPlaying) {
-      return;
-    }
-
-    const draw = () => {
-      setFrameCount((cur) => cur + 1);
-      raf.current = requestAnimationFrame(draw);
-    };
-
-    draw();
-
-    return () => {
-      cancelAnimationFrame(raf.current);
-    };
-  }, [isPlaying]);
-
-  return frameCount;
-};
-
-export const Circle = ({
-  minX,
-  maxX,
-  minY,
-  maxY,
-  minRadius,
-  maxRadius,
-  color1,
-  color2,
-}) => {
-  const x = useRef(minX + Math.random() * maxX - minX);
-  const y = useRef(minX + Math.random() * maxY - minY);
-  const _maxRadius = useRef(
-    minRadius + Math.random() * (maxRadius - minRadius)
-  );
-  const radius = useRef(minRadius);
-  const rotation = useRef(Math.random() * 360);
-  const rotatingSpeed = useRef(Math.random() * 5);
-  rotation.current += rotatingSpeed.current;
-  radius.current = Math.min(_maxRadius.current, radius.current + 2);
-  return (
-    <g
-      transform={`translate(${x.current}, ${y.current}) rotate(${rotation.current})`}
-    >
-      <path
-        d={`M ${radius.current} 0
-          A ${radius.current} ${
-          radius.current
-        }, 0, 0, 0, ${-radius.current} 0 Z`}
-        fill={color1}
-      />
-      <path
-        d={`M ${-radius.current} 0
-           A ${radius.current} ${radius.current}, 0, 0, 0, ${
-          radius.current
-        } 0 Z`}
-        fill={color2}
-      />
-    </g>
-  );
 };
