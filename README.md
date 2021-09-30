@@ -26,15 +26,18 @@ _All instructions below are for Mac, but most explanations should work for Windo
 
 We are going to be creating a new [Mechanic](https://mechanic.design) project.
 
-1. In Finder, find the folder where you want to create a new Mechanic project folder
-2. Open the Terminal application, write `cd` and drag the folder to the Terminal Window
-3. Press enter
+First, get your Terminal / Command Prompt to be at the right folder
 
-Now you can run the commands to create and run a new Mechanic project:
+1. **Mac** Open the Terminal application, write `cd ~/Desktop` (or copy-paste this command) and press Enter.
+2. **Windows**
+   1. Open the command prompt by pressing `Windows Key + X` and clicking on `Command Prompt (Admin)`.
+   2. Write `c:\Users\(username)\Desktop` (replacing `(username)` by your username) and press Enter.
+
+Now you can run the command to create and run a new Mechanic project:
 
 1. Run `npm init mechanic@latest rules-tools-workshop`
-2. Select "template"
-3. Select "React Image (SVG)"
+2. Select `"template"`
+3. Select `"React Image (SVG)"`
 4. Call the function `my-first-function`
 
 Now you have created a Mechanic project and you can move into the folder and run the design tool:
