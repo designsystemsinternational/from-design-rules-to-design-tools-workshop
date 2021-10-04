@@ -10,8 +10,8 @@ export const Circle = ({
   colorOne,
   colorTwo,
 }) => {
-  const x = useRef(minX + Math.random() * maxX - minX);
-  const y = useRef(minX + Math.random() * maxY - minY);
+  const x = useRef(minX + Math.random() * (maxX - minX));
+  const y = useRef(minY + Math.random() * (maxY - minY));
   const _maxRadius = useRef(
     minRadius + Math.random() * (maxRadius - minRadius)
   );
