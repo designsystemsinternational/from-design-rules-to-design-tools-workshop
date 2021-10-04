@@ -2,6 +2,8 @@
 
 This code repository holds all the code shown in the From Rules to Tools workshop at Design Matter 2021.
 
+- [Link to slidehow](https://www.dropbox.com/s/5fyso6lsd2ksfwk/Design%20Matters%20Mechanic%20Workshop%202021.pdf?dl=0)
+
 ## Installation
 
 In order to run Mechanic, you need to install two things on your computer.
